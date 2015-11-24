@@ -7,7 +7,8 @@ var express = require('express'),
 		cookieParser = require('cookie-parser'),
 		session = require('express-session'),
 		passport = require('passport'),
-		LocalStrategy = require('passport-local').Strategy;
+		LocalStrategy = require('passport-local').Strategy,
+		env = require('dotenv').load();
 
 //require models
 var User = require('./models/user'),
@@ -52,9 +53,31 @@ app.get('/profile', function (req, res) {
 	res.render('profile');
 });
 
-
+//user login
+app.get('/login', function (req, res) {
+	if(req.user) {
+		res.redirect('/profile', {user: req.user});
+	}else {
+		res.render('/login');
+	};
+});
+//user logout
+app.get('/logout', function (req, res) {
+	res.logout();
+	res.redirect('/');
+});
+//signup page
+app.get('/signup', function (req, res) {
+	if(req.user) {
+		res.redirect('/profile');
+	}else {
+		res.render('/signup');
+	};
+});
+//
 
 //set port
 var server = app.listen(process.env.PORT || 3000, function () {
 	console.log('Im listening');
 });
+
