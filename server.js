@@ -11,20 +11,19 @@ var express = require('express'),
 //require models
 
 //connect mongoose
-mongoose.connect('mongodb://localhost/project1');
+mongoose.connect('mongodb://localhost/projectOne');
 
 //use dependencies
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser);
-app.use(session({
-	secret: 'secret',
-	resave: false,
-	saveUninitialized: false
-}));
+// app.use(cookieParser);
+// app.use(session({
+// 	secret: 'secret',
+// 	resave: false,
+// 	saveUninitialized: false
+// }));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/partials');
-//hbs helper
 //hbs helper
 hbs.registerHelper('list', function(context, options) {
 var ret = '<ul>';
@@ -36,7 +35,18 @@ for(var i=0, j=context.length; i<j; i++) {
   return ret + '</ul>';
 });
 
+//passport config
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+
+
+//ROUTES//
+app.get('/', function (req, res) {
+	res.render('index');
+});
+
 //set port
 var server = app.listen(process.env.PORT || 3000, function () {
-	console.log('hellooo');
+	console.log('Im listening');
 });
