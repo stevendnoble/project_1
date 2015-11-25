@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 {{> headCDN}}
-	<title>Login</title>
+	<title>Sign Up</title>
 </head>
 <body>
 	{{> navPartial}}
@@ -10,14 +10,14 @@
 	<div class='container'>
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class='text-center signup-h1'>Sign Up</h1>
+				<h1 class='text-center head-h1'>Sign Up</h1>
 			</div>
 		</div>
 		<div class='row'>
 			<div class='col-md-12'>
 				<form class='sign-up' method='POST' action='/signup'>
 					<div class="form-group">
-						<input type="email" name='email' class='form-control' placeholder='Email' autofocus>
+						<input type="text" name='username' class='form-control' placeholder='Username' autofocus>
 					</div>
 					<div class="form-group">
 						<input type="password" name='password' class='form-control' placeholder='Password'>
