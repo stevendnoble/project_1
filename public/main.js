@@ -3,20 +3,15 @@ $(function () {
 
 	var baseUrl = 'http://localhost:3000/api/events'
 
-	$.get(baseUrl, function (data) {
-		console.log(data.events)
-	})
+	// $.get(baseUrl, function (data) {
+	// 	console.log(data.events.event)
+
+	// });
 
 
+//slideshow
 
-
-
-
-
-
-
-
-
+$('.carousel').carousel({interval: 2500});
 
 
 	
