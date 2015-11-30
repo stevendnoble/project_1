@@ -120,13 +120,15 @@ app.get('/logout', function (req, res) {
 
 //end of user routes//
 
-var apiUrl = 'http://api.eventful.com/json/events/search?app_key=' + shh + '&keywords=music&location=San+Francisco'
+var apiUrl = 'http://api.eventful.com/json/events/search?app_key=' + shh + '&category=Festival&location=San+Diego'
 //:location and keyWord will be parsed from the form
 //using music and sf to see if it will work on client side first
 
 
 // start events //
-app.get('/api/events', function (req, res) {
+app.get('/?event-search=:events&location-search=:location', function (req, res) {
+	var eventSearch = req.params.events,
+			locationSearch = req.params.location;
 	request(apiUrl, function (err, response, body) {
 	if (!err && response.statusCode == 200) {
 		var info = JSON.parse(body);
@@ -135,12 +137,15 @@ app.get('/api/events', function (req, res) {
 	});
 });
 
-
-
-
-
-
-
+//checking to see if able to display data 
+app.get('/api/events', function (req, res) {
+	request(apiUrl, function (err, response, body) {
+	if (!err && response.statusCode == 200) {
+		var info = JSON.parse(body);
+		res.json(info);
+		}	
+	});
+});
 
 
 
