@@ -4,17 +4,14 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema ({
 	username: String,
-	email: String,
 	password: String,
-	events: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Event'
-	}]
+	// events: [{
+	// 	type: Schema.Types.ObjectId,
+	// 	ref: 'Event'
+	// }]
 });
 
-UserSchema.plugin(passportLocalMongoose, {
-	populateFields: 'events'
-});
+UserSchema.plugin(passportLocalMongoose);
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;
