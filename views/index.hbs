@@ -6,16 +6,29 @@
 </head>
 <body>
 	{{> navPartial}}
+	{{> carousel}}
 	<!-- will have the search here -->
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				
-			</div>
+<section> 
+	<div class="row">
+		<div class="col-md-12">
+			<form class='form-pad'>
+				<div class='form-group' style='float: left;'>
+					<input type="text" class='form-control' name='event-search' placeholder='Search Event'>
+				</div>
+				<div class='form-group' style='float: left;'>
+					<input type="text" class='form-control' name='location-search' placeholder='City or Zip'>
+				</div>
+				<div class='form-group' style='float: left;'>
+					<input type="submit" class='form-control' value='Search'>
+				</div>
+			</form>
 		</div>
 	</div>
-
+</section>
+<section>
+	
+</section>
 {{> endCDN}}
 </body>
 </html>

@@ -17,7 +17,11 @@ var shh = process.env.super_secret;
 //require models
 var User = require('./models/user');
 //connect mongoose
-mongoose.connect('mongodb://localhost/projectOne');
+mongoose.connect(
+	process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+	'mongodb://localhost/projectOne'
+);
 
 //use dependencies
 app.use(bodyParser.urlencoded({extended: true}));

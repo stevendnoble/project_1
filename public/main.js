@@ -11,7 +11,7 @@ $(function () {
 
 //slideshow
 
-$('.carousel').carousel({interval: 3200});
+$('.carousel').carousel({interval: 2600});
 
 
 	

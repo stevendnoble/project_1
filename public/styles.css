@@ -9,7 +9,7 @@
 /** slide show for the header **/
 .carousel { z-index: -99; } /* keeps this behind all content */
 .carousel .item {
-    position: fixed; 
+    
     width: 100%; height: 100%;
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
@@ -19,14 +19,14 @@
 
 }
 .carousel .one {
-    background: url(concert_1.jpg);
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(concert_1.jpg);
     background-position: center;
     background-size: cover;
     height: 90vh;
     -moz-background-size: cover;
 }
 .carousel .two {
-    background: url(concert_2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)),url(concert_2.jpg);
   	background-position: center;
     background-size: cover;
     height: 90vh;
@@ -34,7 +34,7 @@
 }
 .carousel .three {
 		background-position: center;
-    background: url(event_1.jpg);
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(event_1.jpg);
     background-size: cover;
     height: 90vh;
     -moz-background-size: cover;
@@ -71,7 +71,7 @@
 }
 
 /*
-WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+Added transforms to improve carousel performance in modern browsers."
 now override the 3.3 new styles for modern browsers & apply opacity
 */
 @media all and (transform-3d), (-webkit-transform-3d) {
@@ -94,4 +94,12 @@ now override the 3.3 new styles for modern browsers & apply opacity
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0);
     }
+}
+
+
+
+.form-pad {
+	padding: 34px;
+	width: 50%;
+	margin: 0 auto;
 }
