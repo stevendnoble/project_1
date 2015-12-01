@@ -1,7 +1,7 @@
 $(function () {
 	console.log('meow');
 
-	var baseUrl = 'http://localhost:3000/api/events',
+	var baseUrl = 'http://localhost:3000/events',
 			$submitSearch = $('.submit-search'),
 			$eventList = $('#events-list'),
 			eventCollection = [];
@@ -16,12 +16,24 @@ $(function () {
 		var eventHtml = template({events: eventCollection});
 		$eventList.append(eventHtml);
 	}
-	//get and display events
-	$.get(baseUrl, function (data) {
-		console.log(data.events.event)
+//get user input for category and location
+$submitSearch.on('submit', function (event) {
+	event.preventDefault();
+	$eventList.empty();
+	//user input
+	var categoryInput =  $('.category_input').val(),
+			locationInput = $('.location_input').val(),
+			searchParam = {
+				cateInput: categoryInput,
+				locatInput: locationInput
+			};
+	//api call with searchParams
+	$.get('/api/events', searchParam, function (data) {
+		console.log(data.events.event);
 		eventCollection = data.events.event;
 		appendEvent();
 	});
+});
 
 
 //slideshow
