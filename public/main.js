@@ -57,12 +57,13 @@ $submitSearch.on('submit', function (event) {
 		eventCollection = data.events.event;
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
-			var lng = location.longitude,
-					lat = location.latitude,
-					zip = location.postal_code,
-			address = location.venue_address,
-		stateAbbr = location.region_abbr
+			var address = location.venue_address
+		if (address) {
+			geocoder.query(address, function (err, result) {
+				console.log('result.latlng[1]:', result.latlng[1], ' result.latlng[0]:', result.latlng[0]);
 
+			})
+		}
 		})
 	});
 
