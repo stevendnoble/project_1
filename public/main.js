@@ -11,12 +11,17 @@ $(function () {
 			template = Handlebars.compile(source);
 
 
-	//mapbox
+	//show show custom map with mapbox
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
-var geocoder = L.mapbox.geocoder('mapbox.places'),
-    map = L.mapbox.map('map', 'mapbox.streets');
+var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
+    map = L.mapbox.map('map', 'alanblee35.oafg2a7l');
 
-geocoder.query('San Francisco, CA', showMap);
+//feature layer to plot markers
+var featureLayer = L.mapbox.featureLayer();
+
+
+//geocoder to find the location with lat/long
+// geocoder.query('San Francisco, CA', showMap);
 
 function showMap(err, data) {
     // The geocoder can return an area, like a city, or a
@@ -39,8 +44,9 @@ $submitSearch.on('submit', function (event) {
 	event.preventDefault();
 	$eventList.empty();
 	//user input
-	var categoryInput =  $('.category_input').val(),
-			locationInput = $('.location_input').val(),
+	var categoryInput =  $('.category_input').val();
+	console.log(categoryInput)
+			var locationInput = $('.location_input').val(),
 			searchParam = {
 				cateInput: categoryInput,
 				locatInput: locationInput
@@ -50,9 +56,19 @@ $submitSearch.on('submit', function (event) {
 		console.log(data);
 		eventCollection = data.events.event;
 		appendEvent();
+		var eventLocation = eventCollection.forEach(function (location) {
+			var lng = location.longitude,
+					lat = location.latitude,
+					zip = location.postal_code,
+			address = location.venue_address,
+		stateAbbr = location.region_abbr
+
+		})
 	});
+
 });
 
+//get postal_code, latitude, longitude, region_abbr, venue_address
 
 //slideshow
 
