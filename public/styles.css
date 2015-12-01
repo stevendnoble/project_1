@@ -96,7 +96,15 @@ now override the 3.3 new styles for modern browsers & apply opacity
     }
 }
 
-
+/*map*/
+#map {  
+	top:0; 
+	bottom:0; 
+	width:40%; 
+	margin-left: 55%;
+	margin-right: auto;
+	height: 300px;
+}
 
 .form-pad {
 	padding: 34px;
