@@ -13,8 +13,7 @@ $(function () {
 
 	//show show custom map with mapbox
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
-var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
-    map = L.mapbox.map('map', 'alanblee35.oafg2a7l');
+var map = L.mapbox.map('map', 'alanblee35.oafg2a7l');
 
 //feature layer to plot markers
 var featureLayer = L.mapbox.featureLayer();
@@ -51,28 +50,45 @@ $submitSearch.on('submit', function (event) {
 				cateInput: categoryInput,
 				locatInput: locationInput
 			};
+			
 	//api call with searchParams
 	$.get('/api/events', searchParam, function (data) {
 		console.log(data);
 		eventCollection = data.events.event;
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
-			var address = location.venue_address
-		if (address) {
-			geocoder.query(address, function (err, result) {
-				console.log('result.latlng[1]:', result.latlng[1], ' result.latlng[0]:', result.latlng[0]);
-
-			})
-		}
-		})
+			var address = location.venue_address,
+					name    = location.venue_name,
+					url 		= location.venue_url,
+					zipcode = location.postal_code,
+				stateABBR = location.region_abbr,
+				lat 			= location.latitude,
+				lng 			= location.longitude;
+				//place markers on the map
+		eventMarker(address, name, url, lat, lng, zipcode, stateABBR);
+		});
 	});
-
 });
 
-//get postal_code, latitude, longitude, region_abbr, venue_address
+var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
+	L.mapbox.featureLayer ({
+		type: 'Feature',
+		geometry: {
+			type: 'Point',
+			coordinates: [
+				lng,
+				lat
+			]
+		},
+		properties: {
+			description: name + ' ' + address,
+			'marker-color': "#ff8888",
+			'marker-size' : 'small'
+		}
+	}).addTo(map);
+};
 
 //slideshow
-
 $('.carousel').carousel({interval: 2600});
 
 
