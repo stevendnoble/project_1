@@ -99,6 +99,16 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 		}
 	}).addTo(map);
 };
+//init masonry
+var $container = $('.masonry-container');
+
+$container.imageLoaded( function () {
+  $container.masonry ({
+    // options... 
+    itemSelector: 'div.test',
+    columnWidth: 'div.test'
+  });
+})
 
 //slideshow
 $('.carousel').carousel({interval: 2600});

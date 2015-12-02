@@ -44,14 +44,14 @@
 </section>
 
 
-  <div class="container">
+  <div class="container-fluid">
     <div id="events-list">
+      <div class="row-fluid masonry-container">
       <script type='text/x-handlebars-template' id='event-template'>
-      <div class="row">
       \{{#each events}}
-        <div class="col-sm-6 col-md-3">
+        <div class="col-md-3 test">
           <div class="thumbnail">
-            <img src="/photos/defaultImg.jpg" alt='default-img' style="width: 100%;">
+            <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
             <hr>
             <h3>\{{title}}</h3>
             <p>\{{dateFormat start_time}}</p>
@@ -59,17 +59,17 @@
             <p> taking description out for now </p>
             <hr>
             <p><a href="#" class="btn btn-sm btn-primary">More Info</a>
-            <a href="#" class="btn btn-sm btn-success">Favorite</a></p>
+            <a href="#" class="btn btn-sm btn-success fav-event">Favorite</a></p>
           </div>
         </div>
-      </div>
       \{{/each}}
       </script>
+      </div>
     </div>
   </div>
 
 <section>
-  <div id='map'></div>
+  <div id='map'></div> 
 </section>
 {{> endCDN}}
 </body>

@@ -138,6 +138,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
 	margin-left: 55%;
 	margin-right: auto;
 	height: 300px;
+	display: none;
 }
 
 .form-pad {
@@ -186,4 +187,10 @@ body {
 	margin-top: 0;
 	padding-top: 20px;
 	padding-bottom: 90px;
+}
+.fav-event {
+	background-color: #8a8acb;
+	border-color: #8a8acb;
+	letter-spacing: 1px;
+	font-weight: 100;
 }
