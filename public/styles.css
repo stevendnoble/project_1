@@ -142,7 +142,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
 
 .form-pad {
 	padding: 35px;
-	margin-left:120px;
+	margin-left:105px;
 }
 body {
 	padding-top: 0 !important;
@@ -157,7 +157,7 @@ body {
 	position: absolute;
 	color: #8a8acb;
 	z-index: 200;
-	top: 150px;
+	top: 120px;
 	left: 550px;
 	font-size: 40px;
 }
@@ -167,7 +167,7 @@ body {
 	position: absolute;
 	color: white;
 	z-index: 200;
-	top: 250px;
+	top: 230px;
 	left: 450px;
 	font-size: 30px;
 }

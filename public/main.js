@@ -10,7 +10,11 @@ $(function () {
 	//source handlebar
 	var source = $('#event-template').html(),
 			template = Handlebars.compile(source);
-
+	//handlebars date help
+		Handlebars.registerHelper('dateFormat', function (time) {
+		var dateFormat = new Date(time);
+		return dateFormat;
+	});
 
 	//show show custom map with mapbox
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
