@@ -156,7 +156,7 @@ body {
 	margin: 0;
 	padding-top: 0;
 	position: absolute;
-	color: #8a8acb;
+	color: lightsalmon;
 	z-index: 200;
 	top: 120px;
 	left: 550px;
@@ -181,7 +181,7 @@ body {
 
 .nav.navbar-nav.navbar-right a,
 .navbar-brand{
-	color: #8a8acb !important;
+	color: lightsalmon !important;
 }
 .submit-search {
 	margin-top: 0;
@@ -189,8 +189,28 @@ body {
 	padding-bottom: 90px;
 }
 .fav-event {
-	background-color: #8a8acb;
-	border-color: #8a8acb;
+	background-color: lightsalmon;
+	border-color: lightsalmon;
 	letter-spacing: 1px;
 	font-weight: 100;
+}
+
+.row-eq-height {
+  display: flex; 
+	flex-wrap: wrap;
+}
+
+.thumbnail {
+	min-height: 525px;
+	max-height: 595px;
+}
+.carohead {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	align-content: center;
+	height 70vh;
 }

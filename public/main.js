@@ -94,22 +94,20 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 		},
 		properties: {
 			description: name + ' ' + address,
-			'marker-color': "#8a8acb",
+			'marker-color': "lightsalmon",
 			'marker-size' : 'small'
 		}
 	}).addTo(map);
 };
-//init masonry
-// var $container = $('.masonry-container');
+//trying to fix the column heights
+// var heights = $(".test").map(function() {
+//         return $(this).height();
+//     }).get(),
 
-// $container.imageLoaded( function () {
-//   $container.masonry ({
-//     // options... 
-//     itemSelector: 'div.test',
-//     columnWidth: 'div.test'
-//   });
-// })
+//     maxHeight = Math.max.apply(null, heights);
 
+//     $(".test").height(maxHeight);
+//     console.log(heights);
 //slideshow
 $('.carousel').carousel({interval: 2600});
 
