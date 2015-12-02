@@ -56,12 +56,12 @@ $submitSearch.on('submit', function (event) {
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
 			var address = location.venue_address,
-					name    = location.venue_name,
-					url 		= location.venue_url,
+					name = location.venue_name,
+					url = location.venue_url,
 					zipcode = location.postal_code,
 				stateABBR = location.region_abbr,
-				lat 			= location.latitude,
-				lng 			= location.longitude;
+				lat = location.latitude,
+				lng = location.longitude;
 		//place markers on the map
 		eventMarker(address, name, url, lat, lng, zipcode, stateABBR);
 		//geocoder zooms to the location the user input
