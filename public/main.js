@@ -42,17 +42,18 @@ $submitSearch.on('submit', function (event) {
 	// map.removeLayer();
 	//user input
 	var categoryInput =  $('.category_input').val().toLowerCase();
-	console.log(categoryInput)
+	// console.log(categoryInput)
 			var locationInput = $('.location_input').val(),
 			searchParam = {
 				cateInput: categoryInput,
 				locatInput: locationInput
 			};
-			console.log(searchParam);
+			// console.log(searchParam);
 	//api call with searchParams
 	$.get('/api/events', searchParam, function (data) {
 		// console.log(data);
 		eventCollection = data.events.event;
+    console.log(eventCollection);
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
 			var address = location.venue_address,
@@ -102,13 +103,5 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 //slideshow
 $('.carousel').carousel({interval: 2600});
 
-//bootcards
-bootcards.init( {
-  offCanvasBackdrop : true,
-  offCanvasHideOnMainClick : true,
-  enableTabletPortraitMode : true,
-  disableRubberBanding : true,
-  disableBreakoutSelector : 'a.no-break-out'
-});
 
 });

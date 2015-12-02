@@ -42,30 +42,35 @@
     </div>
   </div>
 </section>
-<section>
-  <div id='map'></div>
-</section>
 
-<section>
+
   <div class="container">
     <div id="events-list">
       <script type='text/x-handlebars-template' id='event-template'>
-      \{{#each events}}
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <p>\{{title}}</p>
-          <p>\{{dateFormat start_time}}</p>
-          <p>\{{venue_name}}</p>
-          <p> taking description out for now </p>
+      \{{#each events}}
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="/photos/defaultImg.jpg" alt='default-img' style="width: 100%;">
+            <hr>
+            <h3>\{{title}}</h3>
+            <p>\{{dateFormat start_time}}</p>
+            <p>\{{venue_name}}</p>
+            <p> taking description out for now </p>
+            <hr>
+            <p><a href="#" class="btn btn-sm btn-primary">More Info</a>
+            <a href="#" class="btn btn-sm btn-success">Favorite</a></p>
+          </div>
         </div>
       </div>
-      <hr>
       \{{/each}}
       </script>
     </div>
   </div>
-</section>
 
+<section>
+  <div id='map'></div>
+</section>
 {{> endCDN}}
 </body>
 </html>
