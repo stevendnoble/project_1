@@ -15,7 +15,10 @@ $(function () {
 	//show show custom map with mapbox
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
 var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
-		map = L.mapbox.map('map', 'alanblee35.oafg2a7l');
+		map = L.mapbox.map('map', 'alanblee35.oafg2a7l', {
+			maxZoom: 10,
+    	minZoom: 4
+		});
 
 //feature layer to plot markers
 var featureLayer = L.mapbox.featureLayer();
@@ -30,6 +33,7 @@ var featureLayer = L.mapbox.featureLayer();
 $submitSearch.on('submit', function (event) {
 	event.preventDefault();
 	$eventList.empty();
+	map.removeLayer();
 	//user input
 	var categoryInput =  $('.category_input').val().toLowerCase();
 	console.log(categoryInput)
@@ -41,7 +45,7 @@ $submitSearch.on('submit', function (event) {
 			console.log(searchParam);
 	//api call with searchParams
 	$.get('/api/events', searchParam, function (data) {
-		console.log(data);
+		// console.log(data);
 		eventCollection = data.events.event;
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
@@ -92,6 +96,14 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 //slideshow
 $('.carousel').carousel({interval: 2600});
 
+//bootcards
+bootcards.init( {
+  offCanvasBackdrop : true,
+  offCanvasHideOnMainClick : true,
+  enableTabletPortraitMode : true,
+  disableRubberBanding : true,
+  disableBreakoutSelector : 'a.no-break-out'
+});
 
 	
 });
