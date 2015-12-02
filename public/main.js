@@ -15,7 +15,7 @@ $(function () {
 	//show show custom map with mapbox
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
 var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
-		map = L.mapbox.map('map', 'alanblee35.oafg2a7l', {
+		map = L.mapbox.map('map', 'alanblee35.oai3ll6g', {
 			maxZoom: 10,
     	minZoom: 4
 		});
@@ -33,7 +33,9 @@ var featureLayer = L.mapbox.featureLayer();
 $submitSearch.on('submit', function (event) {
 	event.preventDefault();
 	$eventList.empty();
-	map.removeLayer();
+
+	//need to find a way to remove the markers after every submit
+	// map.removeLayer();
 	//user input
 	var categoryInput =  $('.category_input').val().toLowerCase();
 	console.log(categoryInput)
@@ -87,7 +89,7 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 		},
 		properties: {
 			description: name + ' ' + address,
-			'marker-color': "#ff8888",
+			'marker-color': "#8a8acb",
 			'marker-size' : 'small'
 		}
 	}).addTo(map);
@@ -105,5 +107,4 @@ bootcards.init( {
   disableBreakoutSelector : 'a.no-break-out'
 });
 
-	
 });

@@ -3,19 +3,19 @@
 <head>
 {{> headCDN}}
 {{> mapbox}}
-	<title>App NAME</title>
+  <title>App NAME</title>
 </head>
 <body>
-	{{> navPartial}}
-	{{> carousel}}
-	<!-- will have the search here -->
+  {{> navPartial}}
+  {{> carousel}}
+  <!-- will have the search here -->
 
 <section> 
-	<div class="row">
-		<div class="col-md-12">
-			<form class='form-pad submit-search'>
-				<div class='form-group' style='float: left;'>
-			    <select class='form-control category_input'>
+  <div class="row">
+    <div class="col-md-12">
+      <form class='form-pad submit-search'>
+        <div class='form-group' style='float: left;'>
+          <select class='form-control category_input'>
             <option value="Music">Music</option>
             <option value="Nightlife">Nightlife</option>
             <option value="Food">Food</option>
@@ -24,39 +24,41 @@
             <option value="Fundraisers">Fundraisers</option>
           </select>
           <!-- <input type="text" class='form-control category_input' name='category_search' placeholder='Search Event'> -->
-				</div>
-				<div class='form-group' style='float: left;'>
-					<input type="text" class='form-control location_input' name='location_search' placeholder='City or Zip'>
-				</div>
-				<div class='form-group' style='float: left;'>
-					<input type="submit" class='form-control' value='Search'>
-				</div>
-			</form>
-		</div>
-	</div>
+        </div>
+        <div class='form-group' style='float: left;'>
+          <input type="text" class='form-control location_input' name='location_search' placeholder='City or Zip'>
+        </div>
+        <div class='form-group' style='float: left;'>
+          <input type="submit" class='form-control' value='Search'>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
 <section>
   <div id='map'></div>
 </section>
+
 <section>
-	<div class="container">
-		<div id="events-list">
-			<script type='text/x-handlebars-template' id='event-template'>
-			\{{#each events}}
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-					<p>\{{title}}</p>
-					<p>\{{start_time}}</p>
-					<p>\{{venue_name}}</p>
+  <div class="container">
+    <div id="events-list">
+      <script type='text/x-handlebars-template' id='event-template'>
+      \{{#each events}}
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <p>\{{title}}</p>
+          <p>\{{start_time}}</p>
+          <p>\{{venue_name}}</p>
           <p> taking description out for now </p>
-				</div>
-			</div>
-			<hr>
-			\{{/each}}
-			</script>
-		</div>
-	</div>
+        </div>
+      </div>
+      <hr>
+      \{{/each}}
+      </script>
+    </div>
+  </div>
 </section>
+
 {{> endCDN}}
 </body>
 </html>
