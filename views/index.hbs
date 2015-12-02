@@ -11,11 +11,11 @@
   <!-- will have the search here -->
 
 <section> 
-  <div class="row">
+  <div class="row center-form">
     <div class="col-md-12">
       <form class='form-pad submit-search'>
-        <div class='form-group' style='float: left;'>
-          <select class='form-control category_input'>
+        <div class='form-group' style='float: left; width: 25%;'>
+          <select class='form-control category_input' style='font-weight:100; letter-spacing: 3px'>
             <option value="Music">Music</option>
             <option value="Nightlife">Nightlife</option>
             <option value="Food">Food</option>
@@ -25,11 +25,18 @@
           </select>
           <!-- <input type="text" class='form-control category_input' name='category_search' placeholder='Search Event'> -->
         </div>
-        <div class='form-group' style='float: left;'>
-          <input type="text" class='form-control location_input' name='location_search' placeholder='City or Zip'>
+        <div class='form-group' style='float: left; width: 25%;'>
+          <select class='form-control date_selection' style='font-weight:100; letter-spacing: 3px'>
+            <option value="Music">All dates</option>
+            <option value="Nightlife">This week</option>
+            <option value="Food">This month</option>
+          </select>
         </div>
-        <div class='form-group' style='float: left;'>
-          <input type="submit" class='form-control' value='Search'>
+        <div class='form-group' style='float: left;width: 25%; '>
+          <input type="text" class='form-control location_input' name='location_search' placeholder='Enter City' style='font-weight:100; letter-spacing: 3px' >
+        </div>
+        <div class='form-group' style='float: left; width: 15%;'>
+          <input type="submit" class='form-control' value='Search' style="background-color:#8a8acb; color:white; font-weight:100; letter-spacing: 3px">
         </div>
       </form>
     </div>

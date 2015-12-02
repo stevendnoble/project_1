@@ -27,7 +27,7 @@
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/music1.jpg);
     background-position: center;
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
 
     -moz-background-size: cover;
 }
@@ -35,42 +35,42 @@
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)),url(./photos/food.jpg);
   	background-position: center;
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
     -moz-background-size: cover;
 }
 .carousel .three {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/comedy.jpg);
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
     -moz-background-size: cover;
 }
 .carousel .four {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/music2.jpg);
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
     -moz-background-size: cover;
 }
 .carousel .five {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/food2.jpg);
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
     -moz-background-size: cover;
 }
 .carousel .six {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.2)), url(./photos/sports.jpg);
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
     -moz-background-size: cover;
 }
 .carousel .seven {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.2)), url(./photos/music3.jpg);
     background-size: cover;
-    height: 90vh;
+    height: 70vh;
     -moz-background-size: cover;
 }
 .carousel .active.left {
@@ -141,9 +141,8 @@ now override the 3.3 new styles for modern browsers & apply opacity
 }
 
 .form-pad {
-	padding: 34px;
-	width: 50%;
-	margin: 0 auto;
+	padding: 35px;
+	margin-left:120px;
 }
 body {
 	padding-top: 0 !important;
@@ -182,4 +181,9 @@ body {
 .nav.navbar-nav.navbar-right a,
 .navbar-brand{
 	color: #8a8acb !important;
+}
+.submit-search {
+	margin-top: 0;
+	padding-top: 20px;
+	padding-bottom: 90px;
 }
