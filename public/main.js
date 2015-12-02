@@ -4,6 +4,7 @@ $(function () {
 	var baseUrl = 'http://localhost:3000/events',
 			$submitSearch = $('.submit-search'),
 			$eventList = $('#events-list'),
+			$selectOption = $('.category_input'),
 			eventCollection = [];
 
 	//source handlebar
@@ -30,13 +31,14 @@ $submitSearch.on('submit', function (event) {
 	event.preventDefault();
 	$eventList.empty();
 	//user input
-	var categoryInput =  $('.category_input').val();
+	var categoryInput =  $('.category_input').val().toLowerCase();
 	console.log(categoryInput)
 			var locationInput = $('.location_input').val(),
 			searchParam = {
 				cateInput: categoryInput,
 				locatInput: locationInput
 			};
+			console.log(searchParam);
 	//api call with searchParams
 	$.get('/api/events', searchParam, function (data) {
 		console.log(data);
