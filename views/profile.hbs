@@ -9,7 +9,24 @@
 	<h1 class='head-h1'>hello this is the profile page</h1>
 
 	{{user.username}}
-
+	{{#each user.events}}
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
+            <hr>
+            <h3>{{title}}</h3>
+            <p>{{placeName}}</p>
+            <p>{{placeAddress}}</p>
+            <p>{{postalCode}}</p>
+            <p>{{siteurl}}</p>
+            <p>{{id}}</p>
+            <p> taking description out for now </p>
+            <hr>
+            <p><a href="#" class="btn btn-sm btn-primary">More Info</a>
+            <a href="#" class="btn btn-sm  fav-event" id="\{{id}}">Remove</a></p>
+          </div>
+        </div>
+        {{/each}}
 {{> endCDN}}
 </body>
 </html>

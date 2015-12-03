@@ -78,10 +78,12 @@ $('body').on('click', '.fav-event', function (event) {
   event.preventDefault();
   var eventId = $(this).attr('id');
   console.log(eventId);
+  //object of event to save
   var saveEvent = eventCollection.filter(function (favorite) {
     return favorite.id == eventId;
   })[0];
-  console.log(saveEvent);
+  console.log(saveEvent + 'event object to save');
+
   //got the event object to save into db
   //maybe pass the saveEvent object as data and create a new Event server side with it
   var eventDatatoSave = {
@@ -93,13 +95,10 @@ $('body').on('click', '.fav-event', function (event) {
     imageUrl: saveEvent.image.medium.url,
     url: saveEvent.url,
     id: saveEvent.id
-  }
+  };
+  console.log(eventDatatoSave);
   $.post('/api/favEvents', eventDatatoSave, function (data) {
-    savedEventCollection.push(data);
   });
-
-
-console.log(eventDatatoSave);
 })
 
 

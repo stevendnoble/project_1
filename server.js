@@ -70,6 +70,14 @@ app.post('/signup', function (req, res) {
 	};
 });
 
+//GET the single events
+app.get('/api/favEvents/:id', function (req, res) {
+	var eventId = req.params.id;
+	Event.findOne({ _id: eventId}, function (err, foundEvent) {
+		res.json(foundEvent);
+	});
+});
+
 //POST to login
 app.post('/login', passport.authenticate('local'), function (req, res) {
 	res.redirect('profile');
@@ -141,6 +149,7 @@ app.get('/api/events', function (req, res) {
 		};
 	});
 });
+
 //route to see events saved
 app.get('/api/favEvents', function (req,res) {
 	Event.find(function (err, allEvents) {
@@ -150,16 +159,16 @@ app.get('/api/favEvents', function (req,res) {
 // POST request to save event to events collection
 app.post('/api/favEvents', function (req, res) {
 		//getting the data from the evenDataToSave object, hope it works
-		if(req.user) {
-		var titles = req.query.nameOfevent,
-		venueNames = req.query.venuName,
-		venueAddress = req.query.venuAddress,
-		zipCode = req.query.zipcode,
-		stateAbbR = req.query.stateBBR,
-		imagUrl = req.query.imageUrl,
-		eventUrl = req.query.url,
-		eventIds = req.query.id;
+		var titles = req.body.nameOfevent,
+		venueNames = req.body.venuName,
+		venueAddress = req.body.venuAddress,
+		zipCode = req.body.zipcode,
+		stateAbbR = req.body.stateBBR,
+		imagUrl = req.body.imageUrl,
+		eventUrl = req.body.url,
+		eventIds = req.body.id;
 
+		if(req.user) {
 		var favEvent = new Event({
 			title: titles,
 			placeName: venueNames,
@@ -175,6 +184,7 @@ app.post('/api/favEvents', function (req, res) {
 			if (err) {
 				res.status(500).json({error: err.message})
 			}else {
+				favEvent.save();
 				req.user.events.push(savedEvent);
 				req.user.save();
 				res.json(savedEvent);

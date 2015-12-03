@@ -202,8 +202,9 @@ body {
 }
 
 .thumbnail {
-	min-height: 525px;
-	max-height: 555px;
+	min-height: 500px;
+	max-height: 500px;
+  overflow: scroll;
 }
 .carohead {
 	width: 100%;
