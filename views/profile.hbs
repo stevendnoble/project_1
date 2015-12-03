@@ -12,14 +12,13 @@
 	{{#each user.events}}
         <div class="col-md-3">
           <div class="thumbnail">
-            <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
+            <img src="{{imgurUrl}}" alt='default-img' class='img-responsive'>
             <hr>
             <h3>{{title}}</h3>
             <p>{{placeName}}</p>
             <p>{{placeAddress}}</p>
             <p>{{postalCode}}</p>
-            <p>{{siteurl}}</p>
-            <p>{{id}}</p>
+            <a href='{{siteurl}}'>Tickets here</a>
             <p> taking description out for now </p>
             <hr>
             <p><a href="#" class="btn btn-sm btn-primary">More Info</a>

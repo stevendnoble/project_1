@@ -216,3 +216,15 @@ body {
 	align-content: center;
 	height 70vh;
 }
+/*validation errors*/
+label.error {
+  color: #FF4E59;
+  font-weight: 250;
+  letter-spacing: 1px;
+  padding-top: 5px;
+}
+#error-msg {
+  width: 50%;
+  margin: 0 auto 5px auto;
+  padding: 5px;
+}

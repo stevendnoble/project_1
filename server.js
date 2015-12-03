@@ -7,6 +7,7 @@ var express = require('express'),
 		cookieParser = require('cookie-parser'),
 		session = require('express-session'),
 		passport = require('passport'),
+		flash = require('express-flash')
 		LocalStrategy = require('passport-local').Strategy,
 		env = require('dotenv').load(),
 		request = require('request');
@@ -35,6 +36,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+//send flash message
+app.use(flash());
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/partials');
@@ -62,12 +65,21 @@ app.post('/signup', function (req, res) {
 	if (req.user) {
 		res.redirect('profile');
 	}else {
-		User.register(new User({ username: req.body.username }), req.body.password, function (err, newUser) {
-			passport.authenticate('local')(req, res, function() {
-				res.redirect('profile');
-			});
-		});
-	};
+		User.register(new User({ username: req.body.username }), req.body.password, 
+			function (err, newUser) {
+				if (err) {
+					// res.send(err);
+					req.flash('signupError', err.message);
+					res.redirect('signup');
+				}else {
+					passport.authenticate('local')(req, res, function() {
+						res.redirect('profile');
+					});			
+				}
+		});//closes at user.reg
+
+	};//close first else
+
 });
 
 //GET the single events
@@ -109,7 +121,7 @@ app.get('/signup', function (req, res) {
 	if(req.user) {
 		res.redirect('profile');
 	}else {
-		res.render('signup');
+		res.render('signup', { user: req.user, errorMessage: req.flash('signupError') });
 	};
 });
 

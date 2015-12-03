@@ -6,21 +6,21 @@
 </head>
 <body>
 	{{> navPartial}}
-
 	<div class='container'>
 		<div class="row">
 			<div class="col-md-12">
 				<h1 class='text-center head-h1'>Sign Up</h1>
 			</div>
 		</div>
+		{{> flashMessage}}
 		<div class='row'>
 			<div class='col-md-12'>
-				<form class='sign-up' method='POST' action='/signup'>
+				<form class='sign-up' method='POST' action='/signup' id='signup-form'>
 					<div class="form-group">
-						<input type="text" name='username' class='form-control' placeholder='Username' autofocus>
+						<input type="text" name='username' class='form-control' placeholder='Username'  autofocus>
 					</div>
 					<div class="form-group">
-						<input type="password" name='password' class='form-control' placeholder='Password'>
+						<input type="password" name='password' class='form-control' placeholder='Password' >
 					</div>
 					<div class="form-group">
 						<input type="submit" class='form-control btn btn-sm btn-primary' value='Sign Up'>
@@ -31,6 +31,13 @@
 	</div>
 
 
-{{> endCDN}}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js">
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js">
+</script>
+<script type="text/javascript" src="validation.js"></script>
 </body>
 </html>
