@@ -138,15 +138,15 @@ app.get('/api/events', function (req, res) {
 		if (!err && response.statusCode == 200) {
 			var info = JSON.parse(body);
 			res.json(info);
-		}
+		};
 	});
 });
 //route to see events saved
 app.get('/api/favEvents', function (req,res) {
 	Event.find(function (err, allEvents) {
 		res.json({events: allEvents});
-	})
-})
+	});
+});
 // POST request to save event to events collection
 app.post('/api/favEvents', function (req, res) {
 		//getting the data from the evenDataToSave object, hope it works
@@ -178,9 +178,11 @@ app.post('/api/favEvents', function (req, res) {
 				req.user.events.push(savedEvent);
 				req.user.save();
 				res.json(savedEvent);
-			}
-		})
-	}
+			};
+		});
+	}else {
+		res.status(401).json({error: 'Unauthorized'});
+	};
 })
 
 
