@@ -3,3 +3,8 @@
     <div class='container'>{{errorMessage}}</div>
   </div>
 {{/if}}
+{{#if loginError}}
+  <div class="alert alert-danger" id="error-msg">
+    <div class='container'>{{loginError}}</div>
+  </div>
+{{/if}}

@@ -91,12 +91,19 @@ app.get('/api/favEvents/:id', function (req, res) {
 });
 
 //POST to login
-app.post('/login', passport.authenticate('local'), function (req, res) {
-	res.redirect('profile');
-});
+// app.post('/login', passport.authenticate('local'), function (req, res) {
+// 	res.redirect('profile');
+// });
 app.get('/', function (req, res) {
 	res.render('index', {user: req.user});
 });
+
+app.post('/login',
+	passport.authenticate('local', {
+		successRedirect: '/',
+		failureRedirect: 'login',
+		failureFlash: true
+	}));
 
 //GET for profrile page
 app.get('/profile', function (req, res) {
@@ -112,7 +119,8 @@ app.get('/login', function (req, res) {
 	if(req.user) {
 		res.redirect('profile');
 	}else {
-		res.render('login');
+		console.log(req.flash('error'));
+		res.render('login', {errorMessage: req.flash('error')});
 	};
 });
 
