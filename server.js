@@ -141,12 +141,47 @@ app.get('/api/events', function (req, res) {
 		}
 	});
 });
+//route to see events saved
+app.get('/api/favEvents', function (req,res) {
+	Event.find(function (err, allEvents) {
+		res.json({events: allEvents});
+	})
+})
 // POST request to save event to events collection
-// app.post('/api/favoriteEvents', function (req, res) {
-// 	if(req.user) {
-// 		var favEvent = new Event();
-// 	}
-// })
+app.post('/api/favEvents', function (req, res) {
+		//getting the data from the evenDataToSave object, hope it works
+		if(req.user) {
+		var titles = req.query.nameOfevent,
+		venueNames = req.query.venuName,
+		venueAddress = req.query.venuAddress,
+		zipCode = req.query.zipcode,
+		stateAbbR = req.query.stateBBR,
+		imagUrl = req.query.imageUrl,
+		eventUrl = req.query.url,
+		eventIds = req.query.id;
+
+		var favEvent = new Event({
+			title: titles,
+			placeName: venueNames,
+			placeAddress: venueAddress,
+			postalCode: zipCode,
+			regionAbbr: stateAbbR,
+			imgurUrl: imagUrl,
+			siteurl: eventUrl,
+			eventId: eventIds	
+		});
+
+		favEvent.save(function (err, savedEvent) {
+			if (err) {
+				res.status(500).json({error: err.message})
+			}else {
+				req.user.events.push(savedEvent);
+				req.user.save();
+				res.json(savedEvent);
+			}
+		})
+	}
+})
 
 
 //set port

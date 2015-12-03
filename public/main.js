@@ -5,7 +5,8 @@ $(function () {
 			$submitSearch = $('.submit-search'),
 			$eventList = $('#events-list'),
 			$selectOption = $('.category_input'),
-			eventCollection = [];
+			eventCollection = [],
+      savedEventCollection = [];
 
 	//source handlebar
 	var source = $('#event-template').html(),
@@ -81,7 +82,24 @@ $('body').on('click', '.fav-event', function (event) {
     return favorite.id == eventId;
   })[0];
   console.log(saveEvent);
-  
+  //got the event object to save into db
+  //maybe pass the saveEvent object as data and create a new Event server side with it
+  var eventDatatoSave = {
+    nameOfevent: saveEvent.title,
+    venuName: saveEvent.venue_name,
+    venuAddress: saveEvent.venue_address,
+    zipcode: saveEvent.postal_code,
+    stateBBR: saveEvent.region_abbr,
+    imageUrl: saveEvent.image.medium.url,
+    url: saveEvent.url,
+    id: saveEvent.id
+  }
+  $.post('/api/favEvents', eventDatatoSave, function (data) {
+    savedEventCollection.push(data);
+  });
+
+
+console.log(eventDatatoSave);
 })
 
 

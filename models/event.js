@@ -3,12 +3,13 @@ var mongoose = require('mongoose'),
 
 var EventSchema = new Schema ({
 	title: String, 
-	venueName: String,
-	venueAddress: String,
-	zipCode: String,
-	stateAbbr: String,
-	imageUrl: String,
-	url: String
+	placeName: String,
+	placeAddress: String,
+	postalCode: String,
+	regionAbbr: String,
+	imgurUrl: String,
+	siteurl: String,
+	eventId: String
 });
 
 var Event = mongoose.model('Event', EventSchema);
