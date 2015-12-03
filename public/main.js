@@ -20,7 +20,7 @@ $(function () {
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
 var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
 		map = L.mapbox.map('map', 'alanblee35.oai3ll6g', {
-			maxZoom: 10,
+			maxZoom: 12,
     	minZoom: 4
 		});
 
@@ -53,7 +53,7 @@ $submitSearch.on('submit', function (event) {
 	$.get('/api/events', searchParam, function (data) {
 		// console.log(data);
 		eventCollection = data.events.event;
-    console.log(eventCollection);
+    // console.log(eventCollection;
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
 			var address = location.venue_address,
@@ -70,6 +70,20 @@ $submitSearch.on('submit', function (event) {
 		});
 	});
 });
+
+//favorite button click event
+
+$('body').on('click', '.fav-event', function (event) {
+  event.preventDefault();
+  var eventId = $(this).attr('id');
+  console.log(eventId);
+  var saveEvent = eventCollection.filter(function (favorite) {
+    return favorite.id == eventId;
+  })[0];
+  console.log(saveEvent);
+  
+})
+
 
 function showMap(err, data) {
     // The geocoder can return an area, like a city, or a
@@ -99,14 +113,6 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 		}
 	}).addTo(map);
 };
-//favorite button click event
-
-$('body').on('click', '.fav-event', function (event) {
-  event.preventDefault();
-  var eventId = $(this).attr('id');
-  console.log(eventId);
-  
-})
 
 //pagination
 

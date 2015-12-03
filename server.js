@@ -142,7 +142,11 @@ app.get('/api/events', function (req, res) {
 	});
 });
 // POST request to save event to events collection
-
+// app.post('/api/favoriteEvents', function (req, res) {
+// 	if(req.user) {
+// 		var favEvent = new Event();
+// 	}
+// })
 
 
 //set port
