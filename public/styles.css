@@ -138,7 +138,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
 	margin-left: 55%;
 	margin-right: auto;
 	height: 300px;
-	display: none;
+	/*display: none;*/
 }
 
 .form-pad {
@@ -156,7 +156,7 @@ body {
 	margin: 0;
 	padding-top: 0;
 	position: absolute;
-	color: lightsalmon;
+	color: #FF4E59;
 	z-index: 200;
 	top: 120px;
 	left: 550px;
@@ -181,7 +181,7 @@ body {
 
 .nav.navbar-nav.navbar-right a,
 .navbar-brand{
-	color: lightsalmon !important;
+	color: #FF4E59 !important;
 }
 .submit-search {
 	margin-top: 0;
@@ -189,10 +189,11 @@ body {
 	padding-bottom: 90px;
 }
 .fav-event {
-	background-color: lightsalmon;
-	border-color: lightsalmon;
+	background-color: #FF4E59;
+	border-color: #FF4E59;
 	letter-spacing: 1px;
 	font-weight: 100;
+  color: white;
 }
 
 .row-eq-height {

@@ -15,7 +15,9 @@ var express = require('express'),
 var shh = process.env.super_secret;
 
 //require models
-var User = require('./models/user');
+var User = require('./models/user'),
+ Event = require('./models/event');
+
 //connect mongoose
 mongoose.connect(
 	process.env.MONGOLAB_URI ||
@@ -139,6 +141,7 @@ app.get('/api/events', function (req, res) {
 		}
 	});
 });
+// POST request to save event to events collection
 
 
 
