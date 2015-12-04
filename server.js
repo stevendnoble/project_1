@@ -104,7 +104,7 @@ app.post('/login',
 		failureRedirect: 'login',
 		failureFlash: true
 	}));
-	
+
 //GET for profrile page
 app.get('/profile', function (req, res) {
 	if (req.user){
@@ -119,7 +119,6 @@ app.get('/login', function (req, res) {
 	if(req.user) {
 		res.redirect('profile');
 	}else {
-		console.log(req.flash('error'));
 		res.render('login', {errorMessage: req.flash('error')});
 	};
 });
