@@ -1,6 +1,7 @@
 # Events ProjectOne
 
-	The app allows the user to search for events in a whatever city they choose and through the Eventful API, it will return the results plotted onto map. 
+	The app allows the user to search for events in a whatever city 
+	they choose and through the Eventful API, it will return the results plotted onto map. 
 
 #Technologies
 
