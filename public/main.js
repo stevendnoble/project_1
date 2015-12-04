@@ -176,6 +176,48 @@ $('.remove-nav').waypoint(function (direction) {
 		offset: '12%'
 });
 
+//animate effect
+$('.something').waypoint(function (direction) {
+	$('.something').delay(800).queue(function (next) {
+		$('.something').addClass('animated bounceInDown');
+		next();
+	})
+	}, {
+	offset: '50%' 
+});
+
+$('.something2').waypoint(function (direction) {
+	$('.something2').delay(1200).queue(function (next) {
+		$('.something2').addClass('animated fadeIn');
+		next();
+	})
+	}, {
+	offset: '50%' 
+});
+
+$('.something3').waypoint(function (direction) {
+	$('.something3').delay(1300).queue(function (next) {
+		$('.something3').addClass('animated bounceInRight');
+		next();
+	})
+	}, {
+	offset: '50%' 
+});
+//smooth scroll snippet
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 //slideshow
 $('.carousel').carousel({interval: 2600});
 

@@ -161,24 +161,26 @@ body {
     top: -40px;
 }
 .something {
-	margin: 0;
+	margin-bottom: 20px;
 	padding-top: 0;
-	position: absolute;
 	color: #FF4E59;
 	z-index: 200;
-	top: 120px;
-	left: 550px;
-	font-size: 40px;
+	font-size: 55px;
 }
 .something2 {
-	margin: 0;
+  margin-top: 5px;
+	margin-bottom: 20px;
 	padding-top: 0;
-	position: absolute;
 	color: white;
 	z-index: 200;
-	top: 230px;
-	left: 450px;
+  font-weight: 150;
 	font-size: 30px;
+}
+.something3 {
+  padding-top: 0;
+  color: white;
+  z-index: 200;
+  font-size: 30px;
 }
 /*transparent navbar*/
 .navbar {
@@ -244,4 +246,25 @@ label.error {
 img.profile-pic {
   min-width: 50%;
   min-height: 200px;
+}
+
+/*animations*/
+.something,
+.something2,
+.something3 {
+  opacity: 0;
+}
+
+.something.animated,
+.something2.animated,
+.something3.animated {
+  opacity: 1;
+}
+footer {
+  margin-top: 25px;
+  color: #FF4E59;
+  background-color: #333;
+}
+#scroll-here {
+  color: #FF4E59;
 }
