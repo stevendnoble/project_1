@@ -21,17 +21,20 @@
             <option value="Music">Music</option>
             <option value="Nightlife">Nightlife</option>
             <option value="Food">Food</option>
+            <option value="Networking">Networking</option>
             <option value="Sports">Sports</option>
-            <option value="Health">Health</option>
+            <option value="Sports">Sports</option>
+            <option value="Outdoors">Outdoors</option>
             <option value="Fundraisers">Fundraisers</option>
           </select>
           <!-- <input type="text" class='form-control category_input' name='category_search' placeholder='Search Event'> -->
         </div>
-        <div class='form-group' style='float: left; width: 25%;'>
+        <div class='form-group date_input'  style='float: left; width: 25%;'>
           <select class='form-control date_selection' style='font-weight:100; letter-spacing: 3px'>
-            <option value="Music">All dates</option>
-            <option value="Nightlife">This week</option>
-            <option value="Food">This month</option>
+            <option value="All">All dates</option>
+            <option value="Today">Today</option>
+            <option value="ThisWek">This week</option>
+            <option value="ThisMonth">This month</option>
           </select>
         </div>
         <div class='form-group' style='float: left;width: 25%; '>
@@ -62,7 +65,7 @@
             <p><strong>Where: </strong>\{{venue_name}}</p>
             <hr>
             <p><a href="\{{url}}" class="btn btn-sm btn-primary">More Info</a>
-            <a href="#" class="btn btn-sm btn-success  fav-event" id="\{{id}}">Favorite</a></p>
+            <a href="#" class="btn btn-sm btn-success  fav-event" id="\{{id}}">Save</a></p>
           </div>
         </div>
       \{{/each}}

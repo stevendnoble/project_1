@@ -204,7 +204,7 @@ body {
 .fav-event {
 	letter-spacing: 1px;
 	font-weight: 100;
-  color: black;
+  color: white;
 }
 
 
@@ -212,6 +212,16 @@ body {
 	min-height: 500px;
 	max-height: 500px;
   overflow: scroll;
+  background-color: #e5e5e5;
+}
+.thumbnail h3 {
+  padding: 10px;
+  padding-top: 5px;
+}
+.thumbnail p {
+  padding: 10px;
+  padding-top: 5px;
+  margin-bottom: 0;
 }
 ..hero-container {
   position: absolute;
@@ -265,4 +275,7 @@ footer {
 }
 #scroll-here {
   color: #FF4E59;
+}
+hr {
+  border-color:#FF4E59 ;
 }

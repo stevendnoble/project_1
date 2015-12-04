@@ -14,14 +14,12 @@
             <img src="{{imgurUrl}}" alt='default-img' class='img-responsive profile-pic'>
             <hr>
             <h3>{{title}}</h3>
-            <p>{{placeName}}</p>
-            <p>{{placeAddress}}</p>
-            <p>{{postalCode}}</p>
-            <a href='{{siteurl}}'>Tickets here</a>
-            <p> taking description out for now </p>
+            <p><strong>When: </strong>{{startTime}}</p>
+            <p><strong>Where: </strong>{{placeName}}</p>
             <hr>
-            <p><a href="#" class="btn btn-sm btn-primary">More Info</a>
-            <a href="#" class="btn btn-sm  fav-event" id="\{{id}}">Remove</a></p>
+            <p><a href="{{url}}" class="btn btn-sm btn-primary">More Info</a>
+            <a href="#" class="btn btn-sm btn-success  fav-event" id="{{id}}">Remove</a></p>
+            <hr>
           </div>
         </div>
         {{/each}}

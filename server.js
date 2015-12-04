@@ -152,6 +152,7 @@ app.get('/logout', function (req, res) {
 var baseUrl = 'http://api.eventful.com/json/events/search?app_key=' + shh,
 		category = '&category=',
 		location = '&location=',
+		dateSelect = '&date=',
 		endParam = '&sort_order=popularity&page_size=30';
 //:location and keyWord will be parsed from the form
 //using music and sf to see if it will work on client side first
@@ -160,8 +161,9 @@ var baseUrl = 'http://api.eventful.com/json/events/search?app_key=' + shh,
 app.get('/api/events', function (req, res) {
 	//get the variable from client side
 	var catInput = req.query.cateInput,
-			locaInput = req.query.locatInput;
-	request(baseUrl + category+catInput + location+locaInput + endParam, function (err, response, body) {
+			locaInput = req.query.locatInput,
+			timeInput = req.query.datInput;
+	request(baseUrl + category+catInput + location+locaInput+ dateSelect+timeInput + endParam, function (err, response, body) {
 		if (!err && response.statusCode == 200) {
 			var info = JSON.parse(body);
 			res.json(info);
@@ -185,7 +187,8 @@ app.post('/api/favEvents', function (req, res) {
 		stateAbbR = req.body.stateBBR,
 		imagUrl = req.body.imageUrl,
 		eventUrl = req.body.url,
-		eventIds = req.body.id;
+		eventIds = req.body.id,
+		eventStart = req.body.startTime;
 
 		if(req.user) {
 		var favEvent = new Event({
@@ -196,7 +199,8 @@ app.post('/api/favEvents', function (req, res) {
 			regionAbbr: stateAbbR,
 			imgurUrl: imagUrl,
 			siteurl: eventUrl,
-			eventId: eventIds	
+			eventId: eventIds	,
+			startTime: eventStart
 		});
 
 		favEvent.save(function (err, savedEvent) {

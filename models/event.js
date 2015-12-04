@@ -9,7 +9,8 @@ var EventSchema = new Schema ({
 	regionAbbr: String,
 	imgurUrl: String,
 	siteurl: String,
-	eventId: String
+	eventId: String,
+	startTime: String
 });
 
 var Event = mongoose.model('Event', EventSchema);

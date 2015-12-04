@@ -70,9 +70,11 @@ $submitSearch.on('submit', function (event) {
 	var categoryInput =  $('.category_input').val().toLowerCase();
 	// console.log(categoryInput)
 			var locationInput = $('.location_input').val(),
+					dateInput = $('.date_input').val();
 			searchParam = {
 				cateInput: categoryInput,
-				locatInput: locationInput
+				locatInput: locationInput,
+				datInput: dateInput
 			};
 			// console.log(searchParam);
 	//api call with searchParams
@@ -104,7 +106,8 @@ $submitSearch.on('submit', function (event) {
 
 $('body').on('click', '.fav-event', function (event) {
   event.preventDefault();
-  $(this).css('background-color', '#FF4E59').css('border-color', '#FF4E59').css('color', 'white')
+
+  $(this).css('background-color', '#FF4E59').css('border-color', '#FF4E59').css('color', 'white').text('Saved');
   var eventId = $(this).attr('id');
   console.log(eventId);
   //object of event to save
@@ -123,7 +126,8 @@ $('body').on('click', '.fav-event', function (event) {
     stateBBR: saveEvent.region_abbr,
     imageUrl: saveEvent.image.medium.url,
     url: saveEvent.url,
-    id: saveEvent.id
+    id: saveEvent.id,
+    startTime: saveEvent.start_time
   };
   console.log(eventDatatoSave);
   $.post('/api/favEvents', eventDatatoSave, function (data) {
