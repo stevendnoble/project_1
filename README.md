@@ -18,7 +18,7 @@
 	
 #Heroku link
 
-	[Event APP](https://events-project-1.herokuapp.com/)
+https://events-project-1.herokuapp.com/
 
 #Future
 
