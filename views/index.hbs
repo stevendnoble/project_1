@@ -12,7 +12,8 @@
 <br>
 <br>
 <section class="remove-nav"> 
-  <h1 id="scroll-here" class='text-center'>What are you looking for?</h1>
+  <h1 id="scroll-here" class='text-center' style='font-weight: 100; letter-spacing: 1px;'>What are you looking for?</h1>
+  <br>
   <div class="row center-form">
     <div class="col-md-12">
       <form class='form-pad submit-search'>
@@ -61,8 +62,8 @@
             <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
             <hr>
             <h3>\{{dotdot title}}</h3>
-            <p><strong>When: </strong>\{{dateFormat start_time}}</p>
-            <p><strong>Where: </strong>\{{venue_name}}</p>
+            <p><span class='makeRed'>When: </span>\{{dateFormat start_time}}</p>
+            <p><span class='makeRed'>Where: </span>\{{venue_name}}</p>
             <hr>
             <p><a href="\{{url}}" class="btn btn-sm btn-primary">More Info</a>
             <a href="#" class="btn btn-sm btn-success  fav-event" id="\{{id}}">Save</a></p>

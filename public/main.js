@@ -157,7 +157,7 @@ var eventMarker = function(title, address, name, url, lat, lng, zip, stateABBR) 
 			]
 		},
 		properties: {
-			description:'<strong>Event: </strong>' +title +'<br><strong>Venue: </strong>' +name + ' <br><strong>Address: </strong>' + address,
+			description:'<strong>Event: </strong>' +title +'<br><strong>Venue: </strong>' +name + ' <br><strong>Address: </strong>' + address + ', ' + stateABBR + ', ' + zip,
 			'marker-color': "#FF4E59",
 			'marker-size' : 'medium'
 		}
