@@ -27,7 +27,7 @@
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/music1.jpg);
     background-position: center;
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
 
     -moz-background-size: cover;
 }
@@ -35,42 +35,42 @@
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)),url(./photos/food.jpg);
   	background-position: center;
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
     -moz-background-size: cover;
 }
 .carousel .three {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/comedy.jpg);
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
     -moz-background-size: cover;
 }
 .carousel .four {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/music2.jpg);
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
     -moz-background-size: cover;
 }
 .carousel .five {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.5)), url(./photos/food2.jpg);
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
     -moz-background-size: cover;
 }
 .carousel .six {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.2)), url(./photos/sports.jpg);
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
     -moz-background-size: cover;
 }
 .carousel .seven {
 		background-position: center;
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.2)), url(./photos/music3.jpg);
     background-size: cover;
-    height: 70vh;
+    height: 100vh;
     -moz-background-size: cover;
 }
 .carousel .active.left {
@@ -133,12 +133,12 @@ now override the 3.3 new styles for modern browsers & apply opacity
 /*map*/
 div#map {  
 	width:50%; 
-	margin-left: 55%;
-	margin-right: auto;
 	height: 300px;
   float:right;
 }
-
+.floatthis {
+  float:left;
+}
 .form-pad {
 	padding: 35px;
 	margin-left:105px;
@@ -200,16 +200,17 @@ body {
 	max-height: 500px;
   overflow: scroll;
 }
-.carohead {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	align-content: center;
-	height 70vh;
+..hero-container {
+  position: absolute;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
+
 /*validation errors*/
 label.error {
   color: #FF4E59;
