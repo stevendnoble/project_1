@@ -11,6 +11,29 @@ $(function () {
 	//source handlebar
 	var source = $('#event-template').html(),
 			template = Handlebars.compile(source);
+	// grouped each helper
+Handlebars.registerHelper('grouped_each', function(every, context, options) {
+	var out = "", subcontext = [], i;
+		if (context && context.length > 0) {
+			for (i = 0; i < context.length; i++) {
+				if (i > 0 && i % every === 0) {
+					out += options.fn(subcontext);
+						subcontext = [];
+					}
+				subcontext.push(context[i]);
+			}
+		out += options.fn(subcontext);
+	}
+	return out;
+});
+
+  // helper to limit text
+  Handlebars.registerHelper('dotdot', function(str) {
+  if (str.length > 15)
+    return str.substring(0,15) + '...';
+  return str;
+});
+
 	//handlebars date help
 		Handlebars.registerHelper('dateFormat', function (time) {
 		var dateFormat = new Date(time);
@@ -54,7 +77,7 @@ $submitSearch.on('submit', function (event) {
 	$.get('/api/events', searchParam, function (data) {
 		// console.log(data);
 		eventCollection = data.events.event;
-    // console.log(eventCollection;
+    console.log(eventCollection);
 		appendEvent();
 		var eventLocation = eventCollection.forEach(function (location) {
 			var address = location.venue_address,

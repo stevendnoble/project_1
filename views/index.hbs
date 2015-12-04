@@ -46,17 +46,17 @@
 
   <div class="container">
     <div id="events-list">
-      <div class="row row-eq-height">
       <script type='text/x-handlebars-template' id='event-template'>
-      \{{#each events}}
+      \{{#grouped_each 2 events}}
+        <div class="row">
+          \{{#each this}}
         <div class="col-md-3">
           <div class="thumbnail">
             <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
             <hr>
-            <h3>\{{title}}</h3>
-            <p>\{{dateFormat start_time}}</p>
-            <p>\{{venue_name}}</p>
-            <p>\{{id}}</p>
+            <h3>\{{dotdot title}}</h3>
+            <p><strong>When: </strong>\{{dateFormat start_time}}</p>
+            <p><strong>Where: </strong>\{{venue_name}}</p>
             <p> taking description out for now </p>
             <hr>
             <p><a href="#" class="btn btn-sm btn-primary">More Info</a>
@@ -64,13 +64,13 @@
           </div>
         </div>
       \{{/each}}
+      </div>
+      \{{/grouped_each}} 
       </script>
       </div>
-    </div>
   </div>
-<section>
-  <div id='map'></div> 
-</section>
+      <div id='map'></div> 
+
 {{> endCDN}}
 </body>
 </html>

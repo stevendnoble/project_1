@@ -6,13 +6,12 @@
 </head>
 <body>
 	{{> navPartial}}
-	<h1 class='head-h1'>hello this is the profile page</h1>
+	<h1 class='head-h1'>Helloo {{user.username}}</h1>
 
-	{{user.username}}
 	{{#each user.events}}
         <div class="col-md-3">
           <div class="thumbnail">
-            <img src="{{imgurUrl}}" alt='default-img' class='img-responsive'>
+            <img src="{{imgurUrl}}" alt='default-img' class='img-responsive profile-pic'>
             <hr>
             <h3>{{title}}</h3>
             <p>{{placeName}}</p>
@@ -26,6 +25,9 @@
           </div>
         </div>
         {{/each}}
+<section>
+  <div id='map'></div> 
+</section>
 {{> endCDN}}
 </body>
 </html>

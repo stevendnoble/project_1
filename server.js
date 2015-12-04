@@ -104,7 +104,7 @@ app.post('/login',
 		failureRedirect: 'login',
 		failureFlash: true
 	}));
-
+	
 //GET for profrile page
 app.get('/profile', function (req, res) {
 	if (req.user){

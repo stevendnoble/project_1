@@ -131,14 +131,12 @@ now override the 3.3 new styles for modern browsers & apply opacity
 }
 
 /*map*/
-#map {  
-	top:0; 
-	bottom:0; 
-	width:40%; 
+div#map {  
+	width:50%; 
 	margin-left: 55%;
 	margin-right: auto;
 	height: 300px;
-	/*display: none;*/
+  float:left;
 }
 
 .form-pad {
@@ -196,10 +194,6 @@ body {
   color: white;
 }
 
-.row-eq-height {
-  display: flex; 
-	flex-wrap: wrap;
-}
 
 .thumbnail {
 	min-height: 500px;
@@ -227,4 +221,8 @@ label.error {
   width: 50%;
   margin: 0 auto 5px auto;
   padding: 5px;
+}
+img.profile-pic {
+  min-width: 50%;
+  min-height: 200px;
 }
