@@ -89,9 +89,11 @@ $submitSearch.on('submit', function (event) {
 					zipcode = location.postal_code,
 				stateABBR = location.region_abbr,
 				lat = location.latitude,
-				lng = location.longitude;
+				lng = location.longitude,
+				eventName = location.title,
+				image = location.image.medium.url;
 		//place markers on the map
-		eventMarker(address, name, url, lat, lng, zipcode, stateABBR);
+		eventMarker(eventName, address, name, url, lat, lng, zipcode, stateABBR, image);
 		//geocoder zooms to the location the user input
 		geocoder.query(locationInput, showMap);
 		});
@@ -102,6 +104,7 @@ $submitSearch.on('submit', function (event) {
 
 $('body').on('click', '.fav-event', function (event) {
   event.preventDefault();
+  $(this).css('background-color', '#FF4E59').css('border-color', '#FF4E59').css('color', 'white')
   var eventId = $(this).attr('id');
   console.log(eventId);
   //object of event to save
@@ -139,7 +142,7 @@ function showMap(err, data) {
     }
 }
 
-var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
+var eventMarker = function(title, address, name, url, lat, lng, zip, stateABBR, image) {
 	L.mapbox.featureLayer ({
 		type: 'Feature',
 		geometry: {
@@ -150,7 +153,7 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 			]
 		},
 		properties: {
-			description: name + ' ' + address,
+			description:"<img src='" +image + " '> <br>" +'<strong>Event: </strong>' +title +'<br><strong>Venue: </strong>' +name + ' <br><strong>Address: </strong>' + address,
 			'marker-color': "#FF4E59",
 			'marker-size' : 'medium'
 		}
