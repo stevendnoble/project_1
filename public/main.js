@@ -95,7 +95,7 @@ $submitSearch.on('submit', function (event) {
 				eventName = location.title,
 				image = location.image.medium.url;
 		//place markers on the map
-		eventMarker(eventName, address, name, url, lat, lng, zipcode, stateABBR, image);
+		eventMarker(eventName, address, name, url, lat, lng, zipcode, stateABBR);
 		//geocoder zooms to the location the user input
 		geocoder.query(locationInput, showMap);
 		});
@@ -146,7 +146,7 @@ function showMap(err, data) {
     }
 }
 
-var eventMarker = function(title, address, name, url, lat, lng, zip, stateABBR, image) {
+var eventMarker = function(title, address, name, url, lat, lng, zip, stateABBR) {
 	L.mapbox.featureLayer ({
 		type: 'Feature',
 		geometry: {
@@ -157,7 +157,7 @@ var eventMarker = function(title, address, name, url, lat, lng, zip, stateABBR, 
 			]
 		},
 		properties: {
-			description:"<img src='" +image + " '> <br>" +'<strong>Event: </strong>' +title +'<br><strong>Venue: </strong>' +name + ' <br><strong>Address: </strong>' + address,
+			description:'<strong>Event: </strong>' +title +'<br><strong>Venue: </strong>' +name + ' <br><strong>Address: </strong>' + address,
 			'marker-color': "#FF4E59",
 			'marker-size' : 'medium'
 		}
