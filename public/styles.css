@@ -1,5 +1,5 @@
 .sign-up {
-	width: 50%;
+	width: 25%;
 	margin: 0 auto;
 }
 .head-h1 {
@@ -186,6 +186,9 @@ body {
    background: transparent !important;
    border-color: transparent !important;
 }
+.hideNav {
+  opacity: 0 !important;
+}
 
 .nav.navbar-nav.navbar-right a,
 .navbar-brand{
@@ -221,6 +224,11 @@ body {
   align-content: center;
 }
 
+.stickyMap {
+  position: fixed !important;
+  top: 0 !important;
+  left: 50% !important;
+}
 /*validation errors*/
 label.error {
   color: #FF4E59;
@@ -229,7 +237,7 @@ label.error {
   padding-top: 5px;
 }
 #error-msg {
-  width: 50%;
+  width: 25%;
   margin: 0 auto 5px auto;
   padding: 5px;
 }

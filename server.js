@@ -150,9 +150,9 @@ app.get('/logout', function (req, res) {
 //end of user routes//
 
 var baseUrl = 'http://api.eventful.com/json/events/search?app_key=' + shh,
-		category = '&category='
+		category = '&category=',
 		location = '&location=',
-		endParam = '&sort_order=popularity&page_size=30'
+		endParam = '&sort_order=popularity&page_size=30';
 //:location and keyWord will be parsed from the form
 //using music and sf to see if it will work on client side first
 

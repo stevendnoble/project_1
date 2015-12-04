@@ -43,10 +43,12 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
 	//show show custom map with mapbox
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxhbmJsZWUzNSIsImEiOiJjaWhucHNlMzAwN28zdTJqN3h3cTF2aGxlIn0.xTG9793sG8BlSn54rmHSUA';
 var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
-		map = L.mapbox.map('map', 'alanblee35.oai3ll6g', {
+
+	map = L.mapbox.map('map', 'alanblee35.oai3ll6g', {
 			maxZoom: 12,
     	minZoom: 4
 		});
+
 
 //feature layer to plot markers
 var featureLayer = L.mapbox.featureLayer();
@@ -76,6 +78,7 @@ $submitSearch.on('submit', function (event) {
 	//api call with searchParams
 	$.get('/api/events', searchParam, function (data) {
 		// console.log(data);
+
 		eventCollection = data.events.event;
     console.log(eventCollection);
 		appendEvent();
@@ -153,6 +156,25 @@ var eventMarker = function(address, name, url, lat, lng, zip, stateABBR) {
 		}
 	}).addTo(map);
 };
+
+//fix map with waypoints
+$('#map-sticky').waypoint(function (direction) {
+	if(direction == 'down') {
+		$('#map').addClass('stickyMap');
+	}else {
+		$('#map').removeClass('stickyMap');
+	};
+});
+//hide nav when reaching first section
+$('.remove-nav').waypoint(function (direction) {
+	if(direction == 'down') {
+		$('.navbar').addClass('hideNav');
+	}else {
+		$('.navbar').removeClass('hideNav');
+	};
+	}, {
+		offset: '12%'
+});
 
 //slideshow
 $('.carousel').carousel({interval: 2600});
