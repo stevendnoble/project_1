@@ -3,7 +3,7 @@
 <head>
 {{> headCDN}}
 {{> mapbox}}
-  <title>App NAME</title>
+  <title>Events</title>
 </head>
 <body>
   {{> navPartial}}
@@ -59,7 +59,11 @@
           \{{#each this}}
         <div class="col-md-3">
           <div class="thumbnail floathis">
-            <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
+            \{{#if image.medium.url }}
+              <img src="\{{image.medium.url}}" alt='default-img' class='img-responsive'>
+            \{{else}}
+              <img src="/photos/defaultImg.jpg" alt='default-img' class='img-responsive'>
+            \{{/if}}
             <hr>
             <h3>\{{dotdot title}}</h3>
             <p><span class='makeRed'>When: </span>\{{dateFormat start_time}}</p>

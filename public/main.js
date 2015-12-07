@@ -58,7 +58,7 @@ var featureLayer = L.mapbox.featureLayer();
 		$eventList.empty();
 		var eventHtml = template({events: eventCollection});
 		$eventList.append(eventHtml);
-	}
+	};
 //get user input for category and location
 $submitSearch.on('submit', function (event) {
 	event.preventDefault();
@@ -89,15 +89,16 @@ $submitSearch.on('submit', function (event) {
 					name = location.venue_name,
 					url = location.venue_url,
 					zipcode = location.postal_code,
-				stateABBR = location.region_abbr,
-				lat = location.latitude,
-				lng = location.longitude,
-				eventName = location.title,
-				image = location.image.medium.url;
-		//place markers on the map
-		eventMarker(eventName, address, name, url, lat, lng, zipcode, stateABBR);
-		//geocoder zooms to the location the user input
-		geocoder.query(locationInput, showMap);
+					stateABBR = location.region_abbr,
+					lat = location.latitude,
+					lng = location.longitude,
+					eventName = location.title,
+					image = location.image.medium.url;
+					console.log('image', image);
+				//place markers on the map
+				eventMarker(eventName, address, name, url, lat, lng, zipcode, stateABBR);
+				//geocoder zooms to the location the user input
+				geocoder.query(locationInput, showMap);
 		});
 	});
 });
